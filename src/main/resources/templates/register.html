@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}"
+>
+  <head>
+    <title>Register Page</title>
+  </head>
+  <body>
+    <div id="content" class="container mx-auto p-4 dark:text-gray-900">
+      <div class="grid grid-cols-12">
+        <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+        <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+          <div
+            class="bg-neutral-primary-soft block max-w-sm p-6 border-t-4 border-blue-700 bg-white rounded-lg shadow-xs hover:bg-neutral-secondary-medium"
+          >
+            <div data-th-replace="message::messagebox"></div>
+            <h5
+              class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8"
+            >
+              Sign Up
+            </h5>
+            <p class="font-normal text-gray-400 dark:text-gray-400">
+              Start managing contacts on cloud ...
+            </p>
+            <form data-th-action="@{'/do-register'}" data-th-object="${userForm}" method="post" class="mt-5" novalidate>
+              <div class="mb-3">
+                <label
+                  for="name"
+                  class="block mb-2.5 text-sm font-medium text-heading"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  data-th-field="*{name}"
+                  class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
+                  placeholder="name@flowbite.com"
+                  required
+                />
+                <p 
+                data-th-if="${#fields.hasErrors('name')}" 
+                data-th-errors="*{name}"
+                class="text-red-600 p-1"></p>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="email"
+                  class="block mb-2.5 text-sm font-medium text-heading"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  data-th-field="*{email}"
+                  class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
+                  placeholder="name@flowbite.com"
+                  required
+                />
+
+                <p 
+                data-th-if="${#fields.hasErrors('email')}" 
+                data-th-errors="*{email}"
+                class="text-red-600 p-1"></p>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="password"
+                  class="block mb-2.5 text-sm font-medium text-heading"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  data-th-field="*{password}"
+                  class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
+                  placeholder="name@flowbite.com"
+                  required
+                />
+
+                <p 
+                data-th-if="${#fields.hasErrors('password')}" 
+                data-th-errors="*{password}"
+                class="text-red-600 p-1"></p>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="phone"
+                  class="block mb-2.5 text-sm font-medium text-heading"
+                  >Contact Number</label
+                >
+                <input
+                  type="text"
+                  id="phone"
+                  data-th-field="*{phoneNumber}"
+                  class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body"
+                  placeholder="name@flowbite.com"
+                  required
+                />
+
+                <p 
+                data-th-if="${#fields.hasErrors('phoneNumber')}" 
+                data-th-errors="*{phoneNumber}"
+                class="text-red-600 p-1"></p>
+              </div>
+              <div class="mb-3">
+                <label
+                  for="about"
+                  class="block mb-2.5 text-sm font-medium text-heading"
+                  >Write some text about yourself</label
+                >
+                <textarea
+                  id="about"
+                  rows="4"
+                  data-th-field="*{about}"
+                  class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body"
+                  placeholder="Write here..."
+                ></textarea>
+
+                <p 
+                data-th-if="${#fields.hasErrors('about')}" 
+                data-th-errors="*{about}"
+                class="text-red-600 p-1"></p>
+              </div>
+              <div class="mb-3 flex justify-center space-x-3">
+                <button
+                type="submit"
+                  class="px-3 py-2 rounded bg-gray-800 text-white dark:bg-blue-500 dark:hover:bg-blue-800 hover:bg-gray-900"
+                >
+                  Signup
+                </button>
+                <button
+                type="reset"
+                  class="px-3 py-2 rounded text-white dark:bg-slate-500 dark:hover:bg-slate-900 bg-red-600 hover:bg-red-800"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("Register page script loaded");
+    </script>
+  </body>
+</html>
