@@ -93,4 +93,10 @@ public class UserServiceImpl implements UserService {
         return Optional.ofNullable(save);
     }
 
+    @Override
+    public User getUserByEmail(String email) {
+
+        return userRepositories.findByEmail(email).orElse(null);
+    }
+
 }
